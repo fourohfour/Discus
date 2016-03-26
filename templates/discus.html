@@ -1,0 +1,36 @@
+<html>
+   <head>
+       <link href='https://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+       <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
+       <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='discus.css') }}">
+       <script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
+	   <script type=text/javascript>
+			function load(loadtextID, loadformID, loadbtnID) {
+				$(loadtextID).html("Loading...");
+                $(loadbtnID).attr("disabled", true);
+				$.post('/', $(loadformID).serialize()
+				).done(function(loaded) {
+					$(loadtextID).html(loaded['status']);
+                    $(loadbtnID).attr("disabled", false);
+				}).fail(function() {
+					$(loadtextID).html("Failure");
+				});
+			}
+      </script>
+   </head>
+   <body class="background">
+   <div>
+   <p class='boldtext'>
+       Select Albums from the Following:<br>
+   </p>
+   <form action="" method="post" id="loadform">
+       {{ form.hidden_tag() }}
+          {% for album in form.potential_albums %}
+                  {{album}}
+          {% endfor %}
+       <br>
+	   <div id="status" class='maintext'>Ready to Load</div><br>
+	   <span class='maintext'><input type="button" value="Load" id ='loadbtn' onclick="javascript:load('#status', '#loadform','#loadbtn');" /></span>
+   </form>
+   </body>
+</html>

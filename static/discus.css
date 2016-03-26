@@ -1,0 +1,59 @@
+.boldtext {
+    font-family:'Open Sans', sans-serif;
+    font-weight: 600
+}
+
+.maintext {
+    font-family:'Open Sans', sans-serif;
+    font-weight: 400
+}
+
+.optionbox {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    overflow: auto;
+    vertical-align: text-top;
+}
+
+.background {
+    background-color: #F9F8F6;
+}
+
+.albumart {
+    display: flex;
+    width:100px;
+    height:100px;
+    margin-left:10px;
+    float: left;
+}
+
+.optiontext {
+    margin-left:120px;
+}
+
+.checkmark {
+    height:100px;
+    width :100px;
+    align-items: stretch;
+    color: lawngreen;
+    font-size: 60px;
+    text-align: center;
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label div .checkmark{
+    display:none;
+}
+
+input[type="checkbox"]:checked + label div .checkmark{
+    display:inline;
+}
